@@ -1,13 +1,41 @@
 <?php
-namespace Laba3;
 
 use Loginov\MyLog;
+use Loginov\LoginovException;
+use Loginov\QuEquation;
 
-require_once "core\EquationInterface.php";
-require_once "core\LogAbstract.php";
-require_once "core\LogInterface.php";
-require_once "loginov\Line.php";
-require_once "loginov\MyLog.php";
-require_once "loginov\Quadratic.php";
-MyLog::log("vadim");
+include "core/EquationInterface.php";
+include "core/LogAbstract.php";
+include "core/LogInterface.php";
+include "Loginov/MyLog.php";
+include "Loginov/Equation.php";
+include "Loginov/QuEquation.php";
+include "Loginov/LoginovException.php";
+
+ini_set("display_errors", 1);
+error_reporting(-1);
+
+try {
+    $b = new QuEquation();
+    $values = array();
+
+    for ($i = 1; $i < 4; $i++) {
+        echo "Введите " . $i . " аргумент: ";
+        $values[] = readline();
+    }
+    $va = $values[0];
+    $vb = $values[1];
+    $vc = $values[2];
+
+    MyLog::log("Введено уравнение " . $va . "x^2 + " . $vb . "x + " . $vc . " = 0");
+    $x = $b->solve($va, $vb, $vc);
+
+    $str = implode(", ", $x);
+    MyLog::log("Корни уравнения: " . $str);
+} catch (LoginovException $e) {
+    MyLog::log($e->getMessage());
+}
+
 MyLog::write();
+
+?>
