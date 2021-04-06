@@ -2,7 +2,7 @@
 
 use RuntimeException;
 
-Class LoginovException extends RuntimeException
+Class Exception extends RuntimeException
 {
 }
 
