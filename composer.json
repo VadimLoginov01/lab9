@@ -1,0 +1,33 @@
+{
+  "name": "vadimloginov01/lab9",
+  "description": "lab10",
+  "type": "project",
+  "license": "-",
+  "authors": [
+    {
+      "name": "vadimloginov01",
+      "email": "vadlog2001@mail.ru"
+    }
+  ],
+
+  "minimum-stability": "dev",
+    "scripts": {
+    "post-install-cmd": [
+        "git symbolic-ref --short -q HEAD>version"
+    ]
+	},
+
+  "require": {
+    "vadimloginov01/lab10": "^1.0"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/rok9ru/trpo-core"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/VadimLoginov01/lab10.git"
+    }
+  ]
+}
