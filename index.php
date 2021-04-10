@@ -6,20 +6,20 @@ use Loginov\QuEquation;
 /*include "core/core/EquationInterface.php";
 include "core/core/LogAbstract.php";
 include "core/core/LogInterface.php";
-include "Loginov/MyLog.php";
-include "Loginov/Equation.php";
-include "Loginov/QuEquation.php";
-include "Loginov/Exception.php";*/
+include "max/MyLog.php";
+include "max/Equation.php";
+include "max/QuEquation.php";
+include "max/Exception.php";*/
 require_once __DIR__ . './vendor/autoload.php';
 
 ini_set("display_errors", 1);
 error_reporting(-1);
 
 try {
-    if(!is_dir("log")){
+	if(!is_dir("log")) {
         mkdir("log", 0700);
     }
-    //MyLog::log("Версия программы: " . trim(file_get_contents('version')) );
+    MyLog::log("Версия программы: " . trim(file_get_contents('version')) );
     $b = new QuEquation();
     $values = array();
 
